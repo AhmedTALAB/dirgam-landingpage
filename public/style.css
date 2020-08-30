@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai&family=Reem+Kufi&family=Roboto&display=swap');
+body{
+     font-family: "Almarai", "Roboto" !important;
+}
+.contain{
+position: relative;
+    max-width: 2712px;
+    margin: auto;
+  box-sizing: border-box;
+    overflow: hidden;
+    background-color: #ffffff
+}
+.loader{
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 3;
+}
+#muj2{
+  position:absolute; 
+   top: 50%;
+   left: 50%;
+    transform: translate(360%,-183%);
+    z-index: 1;
+    background-color: transparent;
+}
+#muj1{
+    position:absolute; 
+   top: 50%;
+   left: 50%;
+    transform: translate(-50%,-50%);
+}
+.navbar{
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.navbar-expand-md .nav-link{
+    color: aliceblue;
+}
+.navbar-expand-md .nav-link:hover{
+    color: #e3ce2e;
+}
+.mainthing{ 
+    position: relative;
+    height: 600px;
+    width: 100%;
+     background-image:linear-gradient(-120deg, rgba(0, 0, 0, 0.8) 70% ,rgba(0, 0, 0, 0.8)  20%), url('assets/images/bg2.jpg');
+   border-radius: 0 0 85% 85% / 7%;
+}
+.mainMain{
+    background-color: rgb(23, 23, 23) !important;
+}
+.mainthing .main-logo{
+        position: absolute;
+    top: 250px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+ }
+/* .main-perfume{
+    
+}  */
+.mainthing h1{
+    padding-top: 250px;
+    text-align: center;
+    font-size: 25px;
+    color: aliceblue;
+}
+.mainthing p{  
+    color: #b5b5b5;
+    text-align: center;
+    font-size: 14px;
+}
+.our{
+    position: relative;
+    min-height: 250px;
+    background-color: rgb(23, 23, 23);
+     text-align: center;
+    overflow: hidden;
+}
+h2.main-header{
+    color: #ffffff;
+    font-size: 16px !important;
+    width: 100px;
+    border: 2px solid #fff;
+    background-color: rgb(129, 129, 5);
+    border-radius: 20px;
+    margin: auto;
+    text-align: center;
+    padding: 3px;
+    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.38);
+}
+.our p{
+    padding-top: 50px;
+    color: #dedede;
+    font-size: 14px;
+}
+
+.services{
+  background-color: #ffffff;
+}
+.service{
+    border: 2px solid #fff;
+    padding-top: 10px;
+    background-color:rgb(23, 23, 23);
+    margin: 2px;
+}
+.service .card-head{
+    color: #ffffff;
+    font-size: 16px;
+}
+.service .card-body{
+    color: #e3e3e3;
+    font-size: 14px;
+}
+.contact-us{
+    background-color: #ffffff;
+    color: #727272;
+    font-size: 12px;
+}
+/*   SLIDEERS SECTION GOES HERE   */
+.carousel-container{
+    background-color: #ffffff;
+}
+
+.carousel-container .navbar-item{
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+.carousel-container .navbar-item a.activated{
+    border-bottom: 2px solid;
+    padding-bottom: 5px;
+      color: rgb(129, 129, 5);
+}
+.carousel-0{
+    margin-bottom: 20px;
+}
+.carousel-0 .card-body{
+  background-color: rgb(23, 23, 23);
+    color: aliceblue;
+}
+.carousel-0 .card .card-img-top{
+  width: 100%;
+    height: 200px;
+}
+.carousel-01, .carousel-02 , .carousel-03{
+    display: none;
+}
+.circle{
+    width: 60px;
+    height: 60px;
+    background-color: rgba(129, 129, 5, 0.53);
+    position: absolute;
+    z-index: 2;
+    top: 5px;
+    right: 5px;
+    border-radius: 100%;
+}
+.circle p{
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 14px;
+}
+
+.carousel-0 h4.card-title{
+    font-size: 14px;
+}
+.carousel-0 p.card-text{
+    font-size: 12px;
+}
+.carousel-control-prev , .carousel-control-next{
+    background-color: rgb(0, 0, 0);
+    width: 50px !important;
+    height: 50px;
+    border-radius: 100%;
+   margin-top: 130px;
+    
+}
+
+/* NAVS SECTION GOES HERE */
+.right-footer{
+    padding: 10px;
+    background-color:rgb(23, 23, 23);
+    color: aliceblue;
+
+}
+.left-footer{
+    color: #808080;
+    font-size: 14px;
+    border-top: 2px solid rgb(23, 23, 23);
+    padding-top: 5px;
+}
+.left-footer .btn{
+    margin-top: -10px;
+    width: 100%;
+    background-color: rgb(129, 129, 5);
+    border: 0;
+}
+.left-footer .btn:hover{
+   background-color: rgb(95, 95, 2);
+}
+footer{
+    height: 46px;
+    background-color:rgb(11, 11, 11);
+}
+footer p{
+    font-size: 12px;
+   text-align: right;
+    color: #ffffff;
+
+    padding-top: 12px; 
+}
