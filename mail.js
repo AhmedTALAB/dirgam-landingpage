@@ -5,8 +5,7 @@ require('dotenv').config()
 const auth = {
     auth:{
         api_key: process.env.MAIL_GUN_API_KEY,
-        domain: 'http://sandboxdd04ecfa52d3466da7dd704fd0352b86.mailgun.org',
-        apiUrl: "https://api.mailgun.net/v3"
+        domain: process.env.MAIL_GUN_DOMAIN,
     }
 };
 // create transporter

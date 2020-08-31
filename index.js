@@ -1,8 +1,10 @@
 const express = require('express');
 const path = require('path');
 const sendmail = require('./mail');
-const verifiy = require('./verifyEmail')
 const app = express();
+require('dotenv').config()
+const quickemailverification = require('quickemailverification').client(process.env.VERIFIER_API_KEY).quickemailverification();
+
 
 
 
@@ -22,24 +24,35 @@ app.get('/',(req,res)=>{
 app.post('/email', async (req, res)=>{ 
     const { subject, email, message } = req.body;
   
-    console.log(email)
-    const IsValid = await verifiy(email)
-    if(IsValid === 'valid'){
-
+    quickemailverification.verify(email, (Err, response) => {
+        console.log(response.body.result)
+        console.log("in the function")
+        if(Err) throw new Error("Error with email verifier")
+        if(response.body.result == 'valid'){
+            console.log("vaild")
+            sendmail(email, subject, message, (err, data) => {
+                if(err) {
+                    console.log(err);
+                    res.status(500).json("fucking error");
+                }else{
+                    console.log('success');
+                    res.send('email sent!');
+                }
+                
+            }) 
+        } else{
+            console.log("wrong Email")
+            return res.status(400).json("invalid email")
+        }
+    })
+    console.log("waiting")
+   
     }
-        
-//   sendmail(email, subject, message, (err, data) => {
-//         if(err) {
-//             console.log(err);
-//             res.status(500).json("fucking error");
-//         }else{
-//             console.log('success');
-//             res.send('email sent!');
-//         }
-      
-//     }) 
     
-});
+        
+//
+    
+);
 
 //-------------listening to server------------------
 const PORT = process.env.PORT || 2000;
