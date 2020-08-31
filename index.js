@@ -1,11 +1,12 @@
 const express = require('express');
 const path = require('path');
 const sendmail = require('./mail');
+const verifyEmail = require('./verifyEmail')
 const app = express();
 
 //--------------middlwares------------------------
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'ejs');
 //=====
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
@@ -13,22 +14,34 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //-----------main route--------------------
 app.get('/', (req,res)=>{
-    res.render('index');
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
 });
 //-----post request
-app.post('/email', (req, res)=>{
-    
-const { subject, email, text } = req.body;
-sendmail(email, subject, text, (err, data)=>{
-    if(err){
-        res.status(500).json({message: 'internal error'});
-        console.log(err);
-    }else{
-        res.json('email send');
-    }
-});
-console.log(req.body);
+app.post('/email', (req, res)=>{ 
+    const { subject, email, message } = req.body;
+  
+    console.log(email)
 
+    //dude  de al 
+    const val = verifyEmail(email)
+    console.log(val)
+    
+
+
+
+
+    
+    // sendmail(email, subject, message, (err, data) => {
+    //     if(err) {
+    //         console.log(err);
+    //         res.status(500).json("fucking error");
+    //     }else{
+    //         console.log('success');
+    //         res.send('email sent!');
+    //     }
+      
+    // }) 
+    
 });
 
 //-------------listening to server------------------
