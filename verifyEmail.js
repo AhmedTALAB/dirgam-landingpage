@@ -1,6 +1,6 @@
 const Verifier = require('email-verifier')
-const apiKey = "at_0PlhkkvsB2xJNZqJAZojYHYCfU9By"
-const verifier = new Verifier(apiKey)
+require('dotenv').config()
+const verifier = new Verifier(process.env.VERIFIER_API_KEY)
 
 module.exports = verifyEmail = (email) => {
     console.log(email)

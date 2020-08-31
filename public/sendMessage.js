@@ -1,13 +1,9 @@
 const sendMessage = () => {
-    const subject = document.getElementById('usr');
-    const email = document.getElementById("pwd");
-    const message = document.getElementById("comment");
+    const subject = document.getElementById('usr').value;
+    const email = document.getElementById("pwd").value;
+    const message = document.getElementById("comment").value;
 
-    const subjectVal = subject.value
-    const emailVal = email.value
-    const messageVal = message.value
 
-    console.log(emailVal, messageVal, subjectVal)
 
          fetch('/email', {
         method:"POST",
@@ -15,9 +11,9 @@ const sendMessage = () => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            subject: subject.value ,
-            email: email.value,
-            message: message.value,
+            subject,
+            email,
+            message,
             })
         }).then((data) => data.json())
         .then(res => {

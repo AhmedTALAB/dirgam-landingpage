@@ -22,7 +22,7 @@ app.post('/email', (req, res)=>{
   
     console.log(email)
 
-    //dude  de al 
+    //dude  de al docs hag al packeg https://www.npmjs.com/package/email-verifier
     const val = verifyEmail(email)
     console.log(val)
     
