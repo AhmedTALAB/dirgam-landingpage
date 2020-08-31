@@ -1,8 +1,10 @@
 const express = require('express');
 const path = require('path');
 const sendmail = require('./mail');
-const verifyEmail = require('./verifyEmail')
+const verifiy = require('./verifyEmail')
 const app = express();
+
+
 
 //--------------middlwares------------------------
 // app.set('views', path.join(__dirname, 'views'));
@@ -13,34 +15,29 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //-----------main route--------------------
-app.get('/', (req,res)=>{
+app.get('/',(req,res)=>{
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
 });
 //-----post request
-app.post('/email', (req, res)=>{ 
+app.post('/email', async (req, res)=>{ 
     const { subject, email, message } = req.body;
   
     console.log(email)
+    const IsValid = await verifiy(email)
+    if(IsValid === 'valid'){
 
-    //dude  de al docs hag al packeg https://www.npmjs.com/package/email-verifier
-    const val = verifyEmail(email)
-    console.log(val)
-    
-
-
-
-
-    
-    // sendmail(email, subject, message, (err, data) => {
-    //     if(err) {
-    //         console.log(err);
-    //         res.status(500).json("fucking error");
-    //     }else{
-    //         console.log('success');
-    //         res.send('email sent!');
-    //     }
+    }
+        
+//   sendmail(email, subject, message, (err, data) => {
+//         if(err) {
+//             console.log(err);
+//             res.status(500).json("fucking error");
+//         }else{
+//             console.log('success');
+//             res.send('email sent!');
+//         }
       
-    // }) 
+//     }) 
     
 });
 

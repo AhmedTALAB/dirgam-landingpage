@@ -1,16 +1,10 @@
-const Verifier = require('email-verifier')
 require('dotenv').config()
-const verifier = new Verifier(process.env.VERIFIER_API_KEY)
+const quickemailverification = require('quickemailverification').client(process.env.VERIFIER_API_KEY).quickemailverification();
 
-module.exports = verifyEmail = (email) => {
-    console.log(email)
-    return verifier.verify(email, (err, data) => {
-        if(err){
-            console.log(err, "it is fucking error")
-            return err
-        }
-        return data
+
+module.exports = (email) => {
+    quickemailverification.verify(email, (err, response) => {
+        if(err) throw new Error("Error with email verifier")
+        return response.body.result
     })
-    
-
 }
