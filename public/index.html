@@ -510,6 +510,14 @@
     يجب عليك ادخال الاستفسار
   </div>
 </div>
+      <div   id="alert-container" class="text-center d-none">
+        <div class="alert " role="alert" id="alert-itself">
+          <div id="alert-message" class="d-inline"></div>
+          <button type="button" id="close-alert" class="close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
             </div>
             <div class="col-12 text-center">
                 <div class="btn btn-primary" onclick="sendMessage();">ارسال</div>
@@ -524,11 +532,14 @@
         <p class="text-center" >كل الحقوق محفوظة &copy; 2020</p>
           </footer>
       </div>
-            
+     
             
 
  <script src="./sendMessage.js"></script>
  <script>
+   document.getElementById('close-alert').onclick = (e) => {
+     document.getElementById('alert-container').classList.toggle('d-none', true)
+   }
       document.getElementById('usr').oninput = (e) => {
           console.log("changing")
           e.target.classList.remove('is-invalid')
@@ -539,10 +550,6 @@
       document.getElementById("comment").oninput = (e) => {
           e.target.classList.remove('is-invalid')
       }
-
-      // subjectInput.addEventListener('change', )
-      // emailInput.addEventListener('change', )
-      // messageInput.addEventListener('change', ()
 
  </script>
  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

@@ -1,30 +1,14 @@
 
-window.onload = function(){
-
-    const subjectInput = document.getElementById('usr')
-    const emailInput = document.getElementById("pwd")
-    const messageInput = document.getElementById("comment")
-
-    subjectInput.addEventListener('change', () => {
-        console.log("changing")
-        subjectInput.classList.remove('is-invalid')
-    })
-    emailInput.addEventListener('change', () => {
-        emailInput.classList.remove('is-invalid')
-    })
-    messageInput.addEventListener('change', () => {
-        messageInput.classList.remove('is-invalid')
-    })
-
-
-}
-
 const sendMessage = () => {
 
         
     const subjectInput = document.getElementById('usr')
     const emailInput = document.getElementById("pwd")
     const messageInput = document.getElementById("comment")
+
+    const alert = document.getElementById("alert-itself")
+    const alertContainer = document.getElementById("alert-container")
+    const alertMessgae = document.getElementById('alert-message')
 
     const subject = subjectInput.value.trim();
     const email = emailInput.value.trim();
@@ -49,34 +33,45 @@ const sendMessage = () => {
         return
     }
 
-    console.log("failed")
-
-    /// lisa dayer some shogol
     
 
-        //  fetch('/email', {
-        // method:"POST",
-        // headers:{
-        //     'Content-Type': 'application/json'
-        // },
-        // body: JSON.stringify({
-        //     subject,
-        //     email,
-        //     message,
-        //     })
-        // }).then((data) => data.json())
-        // .then(res => {
-        //     if(res.ok) {
-        //         console.log(res.ok, res.status);
-        //         // here i will do hanak almodal  tama irsal al email binajah
-        //     }
-        //     else{
-        //         throw new Error("error")
-        //         // lam yatem elrsal alemail binajah
-        //     }
+         fetch('/email', {
+        method:"POST",
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            subject,
+            email,
+            message,
+            })
+        }).then((res) => {
+            if(res.ok) {
+                 console.log(res.ok, res.status, res);
+                 
+                     alert.classList.add('alert-success')
+                 
+                // here i will do hanak almodal  tama irsal al email binajah
+            }
+            else{
+                console.log(res, res.ok, res.status)
+                alert.classList.add('alert-danger')
+            }
+
+            return res.json()
+        })
+        .then(data => {
+            alertMessgae.innerText = data
+            alertContainer.classList.toggle('d-none', false)
+
+            console.log(data)
             
-        // })
-        // .catch(err => console.log(err + "fucking errr"))
+        })
+        .catch(err => {
+            console.log(err + "some error happend")
+            alertMessgae.innerText = "حدث خطأ ما اعد المحاولة"
+            alertContainer.classList.toggle('d-none', false)
+        })
         
         
 

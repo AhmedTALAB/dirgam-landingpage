@@ -21,6 +21,7 @@ const mailoption = {
 };
 //send data
 transporter.sendMail(mailoption, (err, data)=>{
+    console.log("error with nodemailer")
     if(err){
         cb(err, null);
     }else{
