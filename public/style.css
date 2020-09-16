@@ -143,7 +143,7 @@ h2.main-header{
 }
 .carousel-0 .card .card-img-top{
   width: 100%;
-    height: 200px;
+    height: 310px;
 }
 .carousel-01, .carousel-02 , .carousel-03{
     display: none;
@@ -181,7 +181,12 @@ h2.main-header{
    margin-top: 130px;
     
 }
-
+.newA{
+    color: white;
+}
+.newA :hover{
+    color: white;
+}
 /* NAVS SECTION GOES HERE */
 .right-footer{
     padding: 10px;
